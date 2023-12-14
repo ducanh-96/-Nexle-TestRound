@@ -39,4 +39,14 @@ public class Token implements Serializable {
 
     @Column(name = "createdAt")
     private LocalDateTime createdAt;
+
+    public void setToken(String token) {
+        this.expiresIn = token;
+        this.updatedAt = LocalDateTime.now();
+    }
+
+    public void setRefreshToken(String refreshToken) {
+        this.refreshToken = refreshToken;
+        this.updatedAt = LocalDateTime.now();
+    }
 }
